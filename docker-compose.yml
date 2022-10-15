@@ -39,19 +39,19 @@ services:
   #   networks:
   #     - wordpress
 
-  # wp:
-  #   build:
-  #     context: .
-  #     dockerfile: php.dockerfile
-  #   volumes:
-  #     - ../wordpress:/var/www/html:delegated
-  #   entrypoint: ['wp', '--allow-root']
-
-  php:
-    build: 
+  wp:
+    build:
       context: .
-      dockerfile: laravel.dockerfile
+      dockerfile: php.dockerfile
     volumes:
-      - ../V4.7.8:/var/www/html:delegated
-    networks:
-      - wordpress
+      - ../wordpress:/var/www/html:delegated
+    entrypoint: ['wp', '--allow-root']
+
+  # php:
+  #   build: 
+  #     context: .
+  #     dockerfile: laravel.dockerfile
+  #   volumes:
+  #     - ../V4.7.8:/var/www/html:delegated
+  #   networks:
+  #     - wordpress
